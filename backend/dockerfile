@@ -1,0 +1,10 @@
+FROM python:3.7.6-stretch
+LABEL maintainer="chris@machinecurve.com"
+RUN apt-get update
+RUN apt-get install libcairo2-dev git -y
+RUN git clone https://github.com/viscom-ulm/Net2Vis.git
+WORKDIR ./Net2Vis/backend
+RUN pip install flask tensorflow==1.14.0 keras cairosvg
+RUN touch ./server_tmp.py
+RUN sed -i "s|app.run(debug=True)|app.run(debug=True,host='0.0.0.0')|g" ./server.py
+CMD [ "python", "./server.py" ]

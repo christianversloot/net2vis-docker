@@ -1,0 +1,7 @@
+FROM node:lts-stretch
+LABEL maintainer="chris@machinecurve.com"
+RUN git clone https://github.com/viscom-ulm/Net2Vis.git
+WORKDIR ./Net2Vis/net2vis
+RUN sed -i "s|http://localhost|http://host.docker.internal|g" ./src/setupProxy.js
+RUN npm install
+CMD [ "npm", "start" ]

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  net2vis-backend:
+    container_name: backend
+    build: ./backend
+    networks:
+      - net2visnetwork
+    restart: always
+    ports:
+      - '5000:5000'
+    volumes:
+      - /nvis:/home/net2vis
+  net2vis-frontend:
+    container_name: frontend
+    build: ./frontend
+    networks:
+      - net2visnetwork
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+        - net2vis-backend
+networks:
+  net2visnetwork:
+      driver: bridge
