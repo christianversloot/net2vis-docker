@@ -30,3 +30,6 @@ https://github.com/viscom-ulm/Net2Vis
 
 ## License
 The licenseable parts of this code are licensed under the [MIT License](./LICENSE).
+
+## Read more?
+MachineCurve. (2020, January 7). Visualizing Keras neural networks with Net2Vis and Docker. Retrieved from https://www.machinecurve.com/index.php/2020/01/07/visualizing-keras-neural-networks-with-net2vis-and-docker/
